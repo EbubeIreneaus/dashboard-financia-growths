@@ -77,10 +77,10 @@ export async function sendTransactionMail(transaction: any, emailTo: string) {
             <p>If you have any questions, please feel free to contact our support team.</p>
 
             <p>Best regards,<br>
-            <strong>Income Growth</strong></p>
+            <strong>Financial Growth</strong></p>
         </div>
         <div class="footer">
-            &copy; ${new Date().getFullYear()} Income Growth. All rights reserved.
+            &copy; ${new Date().getFullYear()} Financial Growth. All rights reserved.
         </div>
     </div>
 </body>
@@ -176,10 +176,10 @@ export async function sendInvestmentMail(investment: any, emailTo: string) {
             <p>If you have any questions, please feel free to contact our support team.</p>
 
             <p>Best regards,<br>
-            <strong>Income Growth</strong></p>
+            <strong>Financial Growth</strong></p>
         </div>
         <div class="footer">
-            &copy; ${new Date().getFullYear()} Income Growth. All rights reserved.
+            &copy; ${new Date().getFullYear()} Financial Growth. All rights reserved.
         </div>
     </div>
 </body>
@@ -273,10 +273,10 @@ export async function sendWithdrawalRequestMail(
             <p>If you have any questions, please contact our support team.</p>
 
             <p>Best regards,<br>
-            <strong>Income Growth</strong></p>
+            <strong>Financial Growth</strong></p>
         </div>
         <div class="footer">
-            &copy; ${new Date().getFullYear()} Income Growth. All rights reserved.
+            &copy; ${new Date().getFullYear()} Financial Growth. All rights reserved.
         </div>
     </div>
 </body>
@@ -370,10 +370,10 @@ export async function sendInvestmentRequestMail(
               <p>If you have any questions, please contact our support team.</p>
   
               <p>Best regards,<br>
-              <strong>Income Growth</strong></p>
+              <strong>Financial Growth</strong></p>
           </div>
           <div class="footer">
-              &copy; ${new Date().getFullYear()} Income Growth. All rights reserved.
+              &copy; ${new Date().getFullYear()} Financial Growth. All rights reserved.
           </div>
       </div>
   </body>
@@ -406,11 +406,11 @@ export async function sendMsgRecievedMail(user: any) {
                         <td align="center">
                             <h2 style="color: #0073e6;">Thank You for Reaching Out!</h2>
                             <p>We have received your message and will get back to you as soon as possible.</p>
-                            <p>If your inquiry is urgent, feel free to reach out directly at service@income-growth.com.</p>
+                            <p>If your inquiry is urgent, feel free to reach out directly at service@financial-growth.com.</p>
                             <p>We appreciate your patience and look forward to assisting you.</p>
                             <br>
                             <p>Best regards,<br>
-                            <strong>Income Growth</strong></p>
+                            <strong>Financial Growth</strong></p>
                             <hr style="border: 0; border-top: 1px solid #ddd;">
                             <p style="font-size: 12px; color: #777;">This is an automated confirmation. No reply is necessary.</p>
                         </td>
@@ -455,7 +455,7 @@ export async function sendMsgReplyMail(message: any, reply: string) {
                               <p>We appreciate your patience and look forward to assisting you.</p>
                               <br>
                               <p>Best regards,<br>
-                              <strong>Income Growth</strong></p>
+                              <strong>Financial Growth</strong></p>
                               <hr style="border: 0; border-top: 1px solid #ddd;">
                           </td>
                       </tr>
