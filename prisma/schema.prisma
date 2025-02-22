@@ -1,0 +1,91 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            Int           @id @default(autoincrement())
+  email         String        @unique
+  fullname      String
+  country       String
+  phone         String
+  password      String
+  active        Boolean       @default(true)
+  emailVerified Boolean       @default(false)
+  createdAt     DateTime      @default(now())
+  admin         Boolean       @default(false)
+  referredBy    User?         @relation("referredBy", fields: [referred_id], references: [id])
+  referred_id   Int?
+  referrals     User[]        @relation("referredBy")
+  account       Account?
+  transactions  Transaction[]
+  investments   Investment[]
+  message       Message[]
+}
+
+model Account {
+  id                 Int     @id @default(autoincrement())
+  user               User    @relation(fields: [userId], references: [id])
+  userId             Int     @unique
+  balance            Decimal @default(0.0) @db.Decimal(10, 2)
+  active_investment  Decimal @default(0.0) @db.Decimal(10, 2)
+  total_withdrawal   Decimal @default(0.0) @db.Decimal(10, 2)
+  total_earnings     Decimal @default(0.0) @db.Decimal(10, 2)
+  last_deposit       Decimal @default(0.0) @db.Decimal(10, 2)
+  last_withdrawal    Decimal @default(0.0) @db.Decimal(10, 2)
+  pending_withdrawal Decimal @default(0.0) @db.Decimal(10, 2)
+  affliate_commision Decimal @default(0.0) @db.Decimal(10, 2)
+}
+
+model Transaction {
+  id            Int       @id @default(autoincrement())
+  transactionId Int       @unique @db.Integer
+  user          User      @relation(fields: [userId], references: [id])
+  userId        Int
+  channel       String?   @db.VarChar(20) // Nullable field
+  amount        Decimal   @db.Decimal(10, 2)
+  wallet        String?   @db.VarChar(100) // Nullable field
+  type          String    @db.VarChar(10)
+  date          DateTime  @default(now()) // Equivalent to auto_now_add in Django
+  status        String    @default("pending") @db.VarChar(10)
+  createdAt     DateTime  @default(now())
+  approvedAt    DateTime?
+}
+
+model Investment {
+  id            Int       @id @default(autoincrement())
+  investmentId  Int       @unique @db.Integer
+  user          User      @relation(fields: [userId], references: [id])
+  userId        Int
+  amount        Decimal   @db.Decimal(10, 2)
+  plan          String    @db.VarChar(15)
+  createdAt     DateTime  @default(now())
+  start_date    DateTime?
+  next_due_date DateTime?
+  active        Boolean   @default(false)
+  roi           Decimal?  @default(0.0) @db.Decimal(10, 2)
+}
+
+model CryptoAddress {
+  id      Int    @id @default(autoincrement())
+  name    String @unique @db.VarChar(30)
+  address String @db.VarChar(100)
+  qrImage String
+}
+
+model Message {
+  id        Int      @id @default(autoincrement())
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int
+  subject   String
+  message   String
+  createdAt DateTime @default(now())
+  status    Int      @default(0)
+}

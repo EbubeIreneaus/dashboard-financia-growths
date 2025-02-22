@@ -1,0 +1,26 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    overflow-x: hidden;
+}
+/* .q-field__native:-webkit-autofill, 
+.q-field__native:-internal-autofill-selected {
+    background-clip: text !important;
+}
+
+.q-field__native:-webkit-autofill,
+.q-field__native:-internal-autofill-selected,
+.q-field__native:-webkit-autofill:hover,
+.q-field__native:-webkit-autofill:focus {
+    transition: background-color 5000s ease-in-out 0s !important;
+} */
+
+/* input, select {
+    color: transparent;
+    -webkit-text-fill-color: transparent !important;
+    -webkit-background-clip: text !important;
+    background-clip:  text !important;
+  } */
+
+
