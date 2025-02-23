@@ -65,12 +65,12 @@ export default defineNuxtConfig({
   },
 
   nodemailer: {
-    from: '<service@income-growth.com>Income Growth',
+    from: '<service@financia-growths.com>Financial Growths',
     host: 'smtp-relay.brevo.com',
     port: 587,
     secure:false,
     auth: {
-      user: '852e23001@smtp-brevo.com',
+      user: '8659a8001@smtp-brevo.com',
       pass:''
     },
   },
