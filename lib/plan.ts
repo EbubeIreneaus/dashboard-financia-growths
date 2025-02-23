@@ -4,7 +4,7 @@ export const plans = [
     value: "starter",
     min: 50,
     max: 499,
-    roi: 15, //15%
+    roi: 20, //20%
     duration: 24, //24 hours
   },
   {
@@ -20,7 +20,7 @@ export const plans = [
     value: "silver",
     min: 4000,
     max: 9999,
-    roi: 50,
+    roi: 60,
     duration: 72,
   },
 
