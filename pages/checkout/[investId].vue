@@ -30,13 +30,14 @@
         </div>
 
         <div class="mb-5">
-          <nuxt-img
+          <img
             :src="wallet?.qrImage"
             height="300px"
             width="350px"
             class="max-w-sm w-full min-h-[300px] rounded-lg mb-4 border-0"
             loading="lazy"
             alt="scan QRCode for wallet address"
+            
           />
           <div class="max-w-sm text-subtitle1 line-clamp-1 text-ellipsis">
             {{ wallet?.address }}
@@ -67,7 +68,7 @@
             <q-item>
               <q-item-section class="text-subtitle1">Returns</q-item-section>
               <q-item-section class="text-subtitle2"
-                ><div v-money="investment?.amount * (plan.roi / 100)"></div
+                ><div v-money="Number(investment?.amount )* (plan.roi / 100)"></div
               ></q-item-section>
             </q-item>
             <q-item>
