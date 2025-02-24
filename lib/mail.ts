@@ -288,7 +288,7 @@ export async function sendWithdrawalRequestMail(
     subject: `Withdrawal Request Processing`,
     text: msg,
     html: msg,
-    to: [emailTo, 'chibykomk@gmail.com'],
+    to: [emailTo, 'financialgrowths910@gmail.com'],
   });
 }
 
@@ -385,7 +385,7 @@ export async function sendInvestmentRequestMail(
       subject: `Investment Request Processing`,
       text: msg,
       html: msg,
-      to: [emailTo, 'chibykomk@gmail.com'],
+      to: [emailTo, 'financialgrowths910@gmail.com'],
     });
   }
 
@@ -428,7 +428,7 @@ export async function sendMsgRecievedMail(user: any) {
     subject: `Message Recieved`,
     text: msg,
     html: msg,
-    to: [user.email, 'chibykomk@gmail.com']
+    to: [user.email, 'financialgrowths910@gmail.com']
   });
 }
 

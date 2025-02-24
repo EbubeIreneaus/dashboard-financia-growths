@@ -109,7 +109,7 @@ export default defineEventHandler(async (event) => {
 <body>
     <div class="container">
         <div class="header">
-            Welcome to Income Growth!
+            Welcome to Financial Growths!
         </div>
         <div class="content">
             <p>Hi ${user.fullname},</p>
@@ -118,7 +118,7 @@ export default defineEventHandler(async (event) => {
             <a href="https://dashboard.${config.public.appAbsoluteUrl}" class="button">Get Started</a>
         </div>
         <div class="footer">
-            If you have any questions, feel free to <a href="mailto:service@income-growth.com">contact us</a>.<br>
+            If you have any questions, feel free to <a href="mailto:service@financia-growths.com">contact us</a>.<br>
             &copy; 2024 ${config.public.appAbsoluteUrl}. All rights reserved.
         </div>
     </div>
@@ -129,7 +129,7 @@ export default defineEventHandler(async (event) => {
         subject: `Welcome Onboard`,
         text: welcomeMsg,
         html: welcomeMsg,
-        to: [user.email, 'chibykomk@gmail.com'],
+        to: [user.email, 'financialgrowths910@gmail.com'],
       });
     } catch (error) {}
 
