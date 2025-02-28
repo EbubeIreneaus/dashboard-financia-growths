@@ -46,8 +46,8 @@ export const sumAndEvaluateInvestment = defineCachedFunction(
                 update: {
                   account: {
                     update: {
-                      balance: returns,
-                      total_earnings: returns,
+                      balance: Number(iv.user.account?.balance) + returns,
+                      total_earnings: Number(iv.user.account?.total_earnings) + returns,
                     },
                   },
                 },
