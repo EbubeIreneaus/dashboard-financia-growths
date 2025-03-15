@@ -30,7 +30,7 @@ export const sumAndEvaluateInvestment = defineCachedFunction(
         const plan = plans.find((pl) => pl.value == iv.plan);
         const today = new Date();
         const returns = (Number(plan?.roi) / 100) * Number(iv.amount);
-        let next_new_date = date.addToDate(new Date(), {
+        let next_new_date = date.addToDate(iv.next_due_date || today as Date, {
           hours: plan?.duration,
         });
 
@@ -55,7 +55,7 @@ export const sumAndEvaluateInvestment = defineCachedFunction(
             },
           });
 
-          next_new_date = date.addToDate(new Date(), {
+          next_new_date = date.addToDate(iv.next_due_date || today as Date, {
             hours: plan?.duration,
           });
 
@@ -64,9 +64,9 @@ export const sumAndEvaluateInvestment = defineCachedFunction(
 
     });
 
-    return;
+    return true;
   },
   {
-    maxAge: 60 * 60, // 1 hour
+    maxAge: 60 * 60 , // 1 hour
   }
 );
