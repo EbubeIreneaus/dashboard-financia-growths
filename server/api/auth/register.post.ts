@@ -9,7 +9,7 @@ const schema = z.object({
     .min(2, { message: "firstname and lastname cannot be empty" }),
   email: z.string().email({ message: "email address is invalid" }),
   country: z.string().min(2, { message: "Please select a valid country" }),
-  phone: z.string().min(10, { message: "enter a valid phone number" }),
+  phone: z.coerce.string().min(7, { message: "enter a valid phone number" }),
   referred_id: z.coerce.number().int().nullable(),
   password: z
     .string()
@@ -27,6 +27,7 @@ export default defineEventHandler(async (event) => {
       return createError({
         statusCode: 400,
         statusMessage: error.issues[0].message,
+        message: error.issues[0].message,
       });
     }
     const config = useRuntimeConfig(event);
