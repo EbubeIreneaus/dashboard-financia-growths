@@ -30,6 +30,8 @@ export const sumAndEvaluateInvestment = defineCachedFunction(
         },
       });
 
+      console.log("allInvestments", allInvestments);
+
       for (const iv of allInvestments) {
   
         const plan = plans.find((pl) => pl.value == iv.plan);
