@@ -30,8 +30,6 @@ export const sumAndEvaluateInvestment = defineCachedFunction(
         },
       });
 
-      console.log("allInvestments", allInvestments);
-
       for (const iv of allInvestments) {
   
         const plan = plans.find((pl) => pl.value == iv.plan);
@@ -69,8 +67,15 @@ export const sumAndEvaluateInvestment = defineCachedFunction(
         } while ((next_new_date as Date) <= today);
       }
 
+    }, {
+      timeout: 15000,
     });
 
     return true;
   },
+  {
+ 
+    maxAge: 60 * 60 * 24, // 1 day
+    
+  }
 );
