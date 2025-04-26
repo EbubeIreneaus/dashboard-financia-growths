@@ -74,8 +74,10 @@ export const sumAndEvaluateInvestment = defineCachedFunction(
     return true;
   },
   {
- 
-    maxAge: 60 * 60 * 24, // 1 day
-    
+  
+    maxAge: 60 * 60 * 1, // 1 day
+    getKey: (event) => {
+      return `sum-eval-${event.context.user.id || new Date()}` // or event.id or anything unique
+    }
   }
 );
