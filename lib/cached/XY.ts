@@ -66,7 +66,4 @@ export const sumAndEvaluateInvestment = defineCachedFunction(
 
     return true;
   },
-  {
-    maxAge: 1 , // 1 hour
-  }
 );

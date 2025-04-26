@@ -251,7 +251,7 @@ async function Register() {
 
     return NotifyError(res.statusMessage??res.message, "top-right");
   } catch (error: any) {
-    return NotifyError(error.statusMessage, "top-right");
+    return NotifyError(error.statusMessage , "top-right");
   } finally {
     isRegistering.value = false;
   }
