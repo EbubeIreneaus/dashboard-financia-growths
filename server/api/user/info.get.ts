@@ -13,7 +13,7 @@ export default defineEventHandler(async (event) => {
       try {
         await sumAndEvaluateInvestment(event)
       } catch (error) {
-        
+        console.log("Error in sumAndEvaluateInvestment:", error);
       }
     // 
 
