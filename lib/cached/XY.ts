@@ -19,6 +19,10 @@ export const sumAndEvaluateInvestment = defineCachedFunction(
         },
         include: {
           user: {
+            omit: {
+              password: true,
+            },
+
             include: {
               account: true,
             },
@@ -27,6 +31,7 @@ export const sumAndEvaluateInvestment = defineCachedFunction(
       });
 
       for (const iv of allInvestments) {
+  
         const plan = plans.find((pl) => pl.value == iv.plan);
         const today = new Date();
         const returns = (Number(plan?.roi) / 100) * Number(iv.amount);
