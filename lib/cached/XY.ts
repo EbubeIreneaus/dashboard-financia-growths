@@ -86,17 +86,14 @@ import { date } from "quasar";
 export const sumAndEvaluateInvestment = defineCachedFunction(
   async (event: H3Event) => {
     const userId = event.context.user.id;
-    const now = new Date();
-
-    // Limit to only investments overdue by 1 week max
-    const oneWeekAgo = date.subtractFromDate(now, { days: 7 });
+    const today = new Date();
 
     const allInvestments = await prisma.investment.findMany({
       where: {
         AND: [
           { active: true },
-          { userId: userId },
-          { next_due_date: { lte: now } },
+          { userId },
+          { next_due_date: { lte: today } },
         ],
       },
       include: {
@@ -116,44 +113,46 @@ export const sumAndEvaluateInvestment = defineCachedFunction(
         const plan = plans.find((pl) => pl.value === iv.plan);
         if (!plan) continue;
 
+        let currentDueDate = iv.next_due_date || today;
         const returns = (Number(plan.roi) / 100) * Number(iv.amount);
-        const today = new Date();
-        let next_due = iv.next_due_date || today;
+        const maxCycles = 3;
+        let cycles = 0;
 
-        // Loop until we catch up to today, max 1-week range already guaranteed
-        while (next_due <= today) {
-          const new_due = date.addToDate(next_due, { hours: plan.duration });
+        while (currentDueDate <= today && cycles < maxCycles) {
+          const newDueDate = date.addToDate(currentDueDate, {
+            hours: plan.duration,
+          });
 
           await prisma.$transaction([
             prisma.investment.update({
               where: { id: iv.id },
               data: {
-                next_due_date: new_due,
-                roi: Number(iv.roi) + returns,
+                next_due_date: newDueDate,
+                roi: { increment: returns },
               },
             }),
             prisma.account.update({
               where: { id: iv.user.account?.id },
               data: {
-                balance: Number(iv.user.account?.balance) + returns,
-                total_earnings: Number(iv.user.account?.total_earnings) + returns,
+                balance: { increment: returns },
+                total_earnings: { increment: returns },
               },
             }),
           ]);
 
-          next_due = new_due;
+          currentDueDate = newDueDate;
+          cycles++;
         }
 
       } catch (err) {
-        console.error(`Failed to process investment ID ${iv.id}:`, err);
-        // Optionally send to monitoring system here
+        console.error(`Error processing investment ID ${iv.id}:`, err);
       }
     }
 
     return true;
   },
   {
-    maxAge: 60 * 60, // 1 hour (cache)
+    maxAge: 60 * 60, // cache for 1 hour
     getKey: (event) => `sum-eval-${event.context.user.id || new Date().toISOString()}`
   }
 );
