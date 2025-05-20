@@ -11,7 +11,7 @@ export default defineEventHandler(async (event) => {
 
     // xxxxxxx fetch and update all transaction xxxxxx
       try {
-        // await sumAndEvaluateInvestment(event)
+        await sumAndEvaluateInvestment(event)
       } catch (error) {
         console.log("Error in sumAndEvaluateInvestment:", error);
       }
