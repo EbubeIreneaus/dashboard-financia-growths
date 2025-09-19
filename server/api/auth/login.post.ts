@@ -15,7 +15,7 @@ const schema = z.object({
 
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig();
-  const {sendMail} = useNodeMailer()
+  // const {sendMail} = useNodeMailer()
   try {
     const { error, data } = await readValidatedBody(event, schema.safeParse);
     if (error) {

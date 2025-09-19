@@ -288,7 +288,7 @@ export async function sendWithdrawalRequestMail(
     subject: `Withdrawal Request Processing`,
     text: msg,
     html: msg,
-    to: [emailTo, 'financialgrowths910@gmail.com'],
+    to: [emailTo],
   });
 }
 
@@ -385,7 +385,7 @@ export async function sendInvestmentRequestMail(
       subject: `Investment Request Processing`,
       text: msg,
       html: msg,
-      to: [emailTo, 'financialgrowths910@gmail.com'],
+      to: emailTo,
     });
   }
 
@@ -428,7 +428,7 @@ export async function sendMsgRecievedMail(user: any) {
     subject: `Message Recieved`,
     text: msg,
     html: msg,
-    to: [user.email, 'financialgrowths910@gmail.com']
+    to: user.email
   });
 }
 

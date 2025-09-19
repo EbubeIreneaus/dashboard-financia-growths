@@ -130,7 +130,7 @@ export default defineEventHandler(async (event) => {
         subject: `Welcome Onboard`,
         text: welcomeMsg,
         html: welcomeMsg,
-        to: [user.email, 'financialgrowths910@gmail.com'],
+        to: [user.email],
       });
     } catch (error) {}
 
