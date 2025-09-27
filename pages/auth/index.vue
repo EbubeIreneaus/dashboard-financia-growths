@@ -54,7 +54,7 @@
               >submit</q-btn
             >
             <div class="h6">
-              <router-link to="/auth/fgetpass"
+              <router-link to="/auth/reset/"
                 >Forgot your password?</router-link
               >
             </div>
