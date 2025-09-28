@@ -92,7 +92,7 @@ export default defineEventHandler(async (event) => {
 
                   <p style="text-align:center; margin:24px 0;">
                     <!-- Primary CTA -->
-                    <a href="https://financia-growths.com/auth/reset/${token}" class="btn" target="_blank" rel="noopener noreferrer" aria-label="Reset your password">
+                    <a href="https://dashboard.financia-growths.com/auth/reset/${token}" class="btn" target="_blank" rel="noopener noreferrer" aria-label="Reset your password">
                       Reset password
                     </a>
                   </p>
@@ -102,8 +102,8 @@ export default defineEventHandler(async (event) => {
                   </p>
 
                   <p style="word-break:break-all; font-size:13px; color:#111827;">
-                    <a href="https://financia-growths.com/auth/reset/${token}" target="_blank" rel="noopener noreferrer" style="color:#0b69ff; text-decoration:underline;">
-                    https://financia-growths.com/auth/reset/${token}
+                    <a href="https://dashboard.financia-growths.com/auth/reset/${token}" target="_blank" rel="noopener noreferrer" style="color:#0b69ff; text-decoration:underline;">
+                    https://dashboard.financia-growths.com/auth/reset/${token}
                     </a>
                   </p>
 
