@@ -71,7 +71,7 @@ export default defineEventHandler(async (event) => {
               <!-- Header -->
               <tr>
                 <td class="email-header" align="left">
-                  <a class="brand" href="https://financia-growth.con" target="_blank" rel="noopener
+                  <a class="brand" href="https://financia-growths.com" target="_blank" rel="noopener
                   Financial Growth
                   </a>
                 </td>
@@ -92,7 +92,7 @@ export default defineEventHandler(async (event) => {
 
                   <p style="text-align:center; margin:24px 0;">
                     <!-- Primary CTA -->
-                    <a href="https://financia-growth.com/auth/reset/${token}" class="btn" target="_blank" rel="noopener noreferrer" aria-label="Reset your password">
+                    <a href="https://financia-growths.com/auth/reset/${token}" class="btn" target="_blank" rel="noopener noreferrer" aria-label="Reset your password">
                       Reset password
                     </a>
                   </p>
@@ -102,8 +102,8 @@ export default defineEventHandler(async (event) => {
                   </p>
 
                   <p style="word-break:break-all; font-size:13px; color:#111827;">
-                    <a href="https://financia-growth.com/auth/reset/${token}" target="_blank" rel="noopener noreferrer" style="color:#0b69ff; text-decoration:underline;">
-                    https://financia-growth.com/auth/reset/${token}
+                    <a href="https://financia-growths.com/auth/reset/${token}" target="_blank" rel="noopener noreferrer" style="color:#0b69ff; text-decoration:underline;">
+                    https://financia-growths.com/auth/reset/${token}
                     </a>
                   </p>
 
@@ -114,8 +114,8 @@ export default defineEventHandler(async (event) => {
                   </p>
 
                   <p class="muted">
-                    Need help? Contact us at <a href="mailto:support@financia-growth.com" style="color:#0b69ff; text-decoration:underline;">
-                    support@financia-growth.com
+                    Need help? Contact us at <a href="mailto:support@financia-growths.com" style="color:#0b69ff; text-decoration:underline;">
+                    support@financia-growths.com
                     </a>.
                   </p>
                 </td>
