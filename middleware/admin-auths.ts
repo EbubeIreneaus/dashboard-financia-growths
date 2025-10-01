@@ -1,5 +1,3 @@
-import jwt, { type JwtPayload } from "jsonwebtoken";
-import prisma from "~/lib/prisma";
 import type { User } from "~/types/user";
 
 export default defineNuxtRouteMiddleware(async (to, from) => {

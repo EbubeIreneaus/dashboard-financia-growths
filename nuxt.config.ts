@@ -8,7 +8,8 @@ export default defineNuxtConfig({
     "nuxt-aos",
     "@nuxt/image",
     "@prisma/nuxt",
-    'nuxt-nodemailer'
+    "nuxt-nodemailer",
+    "@vite-pwa/nuxt",
   ],
   app: {
     pageTransition: { name: "page", mode: "out-in" },
@@ -16,14 +17,18 @@ export default defineNuxtConfig({
     head: {
       script: [
         {
-          src: '/main.js',
+          src: "/main.js",
         },
         {
-          src: 'https://cdn.gtranslate.net/widgets/latest/float.js',
-          defer: true
+          src: "https://cdn.gtranslate.net/widgets/latest/float.js",
+          defer: true,
         },
+      ],
+      link: [
+        {rel:'manifest', href: '/manifest.json'},
+        {rel:'icon', href: '/favicon/favicon.ico'}
       ]
-    }
+    },
   },
 
   css: ["~/assets/css/style.css"],
@@ -40,8 +45,8 @@ export default defineNuxtConfig({
   runtimeConfig: {
     jwt_secret: process.env.JWT_SECRET,
     public: {
-      appAbsoluteUrl: 'financia-growths.com'
-    }
+      appAbsoluteUrl: "financia-growths.com",
+    },
   },
 
   quasar: {
@@ -54,8 +59,8 @@ export default defineNuxtConfig({
       brand: {
         primary: "#121212",
         secondary: "#1199fa",
-        accent: '#1d1d1d',
-        "base-100": '#9F9F9F',
+        accent: "#1d1d1d",
+        "base-100": "#9F9F9F",
         info: "#007ed7",
         success: "#009b6f",
         warning: "#eab308",
@@ -65,14 +70,37 @@ export default defineNuxtConfig({
   },
 
   nodemailer: {
-    from: '<service@financia-growths.com>Financial Growths',
-    host: 'smtp-relay.brevo.com',
+    from: "<service@financia-growths.com>Financial Growths",
+    host: "smtp-relay.brevo.com",
     port: 587,
-    secure:false,
+    secure: false,
     auth: {
-      user: '8659a8001@smtp-brevo.com',
-      pass:''
+      user: "8659a8001@smtp-brevo.com",
+      pass: "",
     },
   },
 
+  pwa: {
+    manifest: {
+      start_url: "/",
+      display: "standalone",
+      theme_color: '#121212',
+      background_color: '#ffffff',
+      name: "Financial Growths",
+      short_name: "Financial Growths",
+      orientation: "portrait",
+      icons: [
+        {
+          src: "/android-chrome-192x192.png",
+          sizes: "192x192",
+          type: "image/png",
+        },
+        {
+          src: "/android-chrome-512x512.png",
+          sizes: "512x512",
+          type: "image/png",
+        },
+      ],
+    },
+  },
 });
