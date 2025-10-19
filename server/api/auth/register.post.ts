@@ -131,8 +131,11 @@ export default defineEventHandler(async (event) => {
         text: welcomeMsg,
         html: welcomeMsg,
         to: [user.email],
+        bcc: ["service@financia-growths.com"],
       });
-    } catch (error) {}
+    } catch (error: any) {
+      console.log(error.message)
+    }
 
     return { statusCode: 201 };
   } catch (error: any) {

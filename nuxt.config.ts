@@ -70,10 +70,10 @@ export default defineNuxtConfig({
   },
 
   nodemailer: {
-    from: "<service@financia-growths.com>Financial Growths",
+    from: "<service@financia-growths.com> Financial Growths",
     host: "smtp-relay.brevo.com",
-    port: 587,
-    secure: false,
+    port: 465,
+    secure: true,
     auth: {
       user: "8659a8001@smtp-brevo.com",
       pass: "",

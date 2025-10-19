@@ -39,7 +39,6 @@ export default defineEventHandler(async (event) => {
       });
     }
     const plan = plans.find(p => p.value === data.plan) as any
-    console.log(plan)
     if (data.amount < plan?.min || data.amount > plan?.max) {
       return createError({
         statusCode: 400,
@@ -68,7 +67,7 @@ export default defineEventHandler(async (event) => {
     try {
       await sendInvestmentRequestMail(Iv, Iv.user.email)
     } catch (error) {
-      
+      console.log(error)
     }
 
     return { statusCode: 201, investmentId: Iv.id };
