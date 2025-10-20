@@ -131,7 +131,7 @@ export default defineEventHandler(async (event) => {
         text: welcomeMsg,
         html: welcomeMsg,
         to: [user.email],
-        bcc: ["service@financia-growths.com"],
+        bcc: ['financialgrowths910@gmail.com']
       });
     } catch (error: any) {
       console.log(error.message)
